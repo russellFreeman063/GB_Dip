@@ -1,0 +1,69 @@
+version: '3.8'
+
+services:
+  postgres-auth:
+    image: postgres:13
+    container_name: postgres-auth
+    environment:
+      POSTGRES_DB: auth_db
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-auth-data:/var/lib/postgresql/data
+
+  postgres-cart:
+    image: postgres:13
+    container_name: postgres-cart
+    environment:
+      POSTGRES_DB: cart_db
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres-cart-data:/var/lib/postgresql/data
+
+  postgres-product:
+    image: postgres:13
+    container_name: postgres-product
+    environment:
+      POSTGRES_DB: product_db
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+    ports:
+      - "5434:5432"
+    volumes:
+      - postgres-product-data:/var/lib/postgresql/data
+
+  postgres-payment:
+    image: postgres:13
+    container_name: postgres-payment
+    environment:
+      POSTGRES_DB: payment_db
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+    ports:
+      - "5435:5432"
+    volumes:
+      - postgres-payment-data:/var/lib/postgresql/data
+
+  postgres-shipping:
+    image: postgres:13
+    container_name: postgres-shipping
+    environment:
+      POSTGRES_DB: shipping_db
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+    ports:
+      - "5436:5432"
+    volumes:
+      - postgres-shipping-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-auth-data:
+  postgres-cart-data:
+  postgres-product-data:
+  postgres-payment-data:
+  postgres-shipping-data:
